@@ -1,0 +1,126 @@
+{% load static %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landing Page</title>
+    <link rel="stylesheet" href="static/style/landing.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    
+    
+
+</head>
+
+<body>
+
+    <div class="father">
+
+        <a href="#" class="btn-elegant" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling"
+            aria-controls="offcanvasScrolling">
+            <i class="fas fa-bars"></i>
+        </a>
+
+        <div class="offcanvas offcanvas-start" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1"
+            id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
+            <div class="offcanvas-header">
+                <h5 class="offcanvas-title" id="offcanvasScrollingLabel">Menú</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+                <!-- Buscador -->
+                <form class="d-flex mb-4">
+                    <input class="form-control me-2" type="search" placeholder="Buscar..." aria-label="Buscar">
+                    <button class="btn btn-outline-success" type="submit">Buscar</button>
+                </form>
+
+                <!-- Menú con Dropdowns para Categorías -->
+                <div class="mb-3">
+                    <button class="btn-elegant w-100" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                        Categorías
+                    </button>
+                    <div class="collapse" id="collapseExample">
+                        <div class="card card-body">
+                            <ul class="list-unstyled">
+                                <li><a href="#">Categoría 1</a></li>
+                                <li><a href="#">Categoría 2</a></li>
+                                <li><a href="#">Categoría 3</a></li>
+                                <li><a href="#">Categoría 4</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Menú con Dropdowns para Servicios -->
+                <div class="mb-3">
+                    <button class="btn-elegant w-100" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapseExample2" aria-expanded="false" aria-controls="collapseExample2">
+                        Servicios
+                    </button>
+                    <div class="collapse" id="collapseExample2">
+                        <div class="card card-body">
+                            <ul class="list-unstyled">
+                                <li><a href="#">Servicio 1</a></li>
+                                <li><a href="#">Servicio 2</a></li>
+                                <li><a href="#">Servicio 3</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Links adicionales -->
+                <ul class="list-unstyled">
+                    <li><a href="#">Inicio</a></li>
+                    <li><a href="#">Sobre nosotros</a></li>
+                    <li><a href="#">Contacto</a></li>
+                </ul>
+            </div>
+        </div>
+
+
+        <div class="son-1">
+            <button id="generar-1" onclick="consulta1()" class="btn-elegant">consulta1</button>
+            <button id="btn-2" onclick="consulta2()" class="btn-elegant">consulta2</button>
+            <button id="btn-3" class="btn-elegant">consulta3</button>
+        </div>
+        <div class="son-2">
+            <form action="{% url 'logoutView' %}" method="post">
+                {% csrf_token %}
+                <button type="submit" class="btn-elegant" name="logout" aria-label="Cerrar sesión">
+                    <i class="fas fa-sign-out-alt"></i>
+                </button>
+            </form>
+        </div>
+
+    </div>
+
+    <table id="data-table" class="table table-striped table-hover table-bordered table-responsive hola">
+        <thead id="table-head">
+            <tr>
+
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Los datos se cargarán aquí mediante JavaScript -->
+        </tbody>
+    </table>
+
+
+    <script src="{% static 'js/main.js' %}"></script>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+</body>
+
+</html>

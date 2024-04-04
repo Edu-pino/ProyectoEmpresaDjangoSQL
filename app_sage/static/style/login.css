@@ -1,0 +1,70 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f0f2f5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: linear-gradient(to right top, #d9e4f5, #f5e3e6); /* Fondo con gradiente suave */
+}
+
+.login-container {
+    background-color: #ffffff;
+    padding: 40px; /* Aumentado para más espacio interior */
+    border-radius: 10px; /* Bordes ligeramente más redondeados */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Sombra más pronunciada para efecto 3D */
+    width: 400px; /* Ancho específico para el contenedor */
+    max-width: 90%; /* Para asegurar que se vea bien en dispositivos móviles */
+}
+
+.login-container:hover{
+    box-shadow: 0 30px 55px rgba(0, 1, 1, 1); /* Sombra más pronunciada para efecto 3D */
+
+}
+
+.login-form h2 {
+    color: #333;
+    text-align: center;
+    margin-bottom: 30px; /* Espacio adicional debajo del título */
+    font-size: 24px; /* Título más grande */
+}
+
+.input-group {
+    margin-bottom: 20px; /* Más espacio entre campos */
+    display: flex;
+    flex-direction: column;
+}
+
+.input-group label {
+    color: #555;
+    margin-bottom: 10px; /* Más espacio entre el label y el input */
+    font-size: 14px; /* Texto un poco más grande para mejorar la legibilidad */
+}
+
+.input-group input {
+    padding: 10px; /* Más padding para hacer el input más grande */
+    border: 1px solid #ccc; /* Borde más claro */
+    border-radius: 5px; /* Bordes ligeramente más redondeados */
+    font-size: 12px; /* Texto más grande */
+}
+
+button {
+    background-color: #007bff; /* Azul más brillante */
+    color: #ffffff;
+    padding: 10px; /* Más grande y fácil de clickear */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 15px; /* Texto más grande */
+    transition: background-color 0.2s; /* Transición más suave */
+    
+}
+
+.container-button{
+    text-align: center;
+}
+
+button:hover {
+    background-color: #0056cc; /* Un azul un poco más oscuro al pasar el mouse */
+}

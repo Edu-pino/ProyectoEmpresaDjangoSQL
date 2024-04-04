@@ -1,0 +1,88 @@
+body{
+    background: #0d426788 !important;
+}
+
+.father{
+    height: 75px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Cambiado para distribuir el espacio */
+    padding: 0 20px; /* Agregar padding para no pegar los elementos a los bordes */
+    background-color: #f8f9fa; /* Color de fondo suave */
+}
+
+.son-1, .son-2{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.son-1 button, .son-2 form a {
+    margin: 0 5px; /* Agrega un poco de margen entre los botones */
+}
+
+.btn-elegant {
+    background-color: #122A3C;
+    color: white;
+    border: none;
+    padding: 5px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    font-size: 16px;
+    text-decoration: none; /* Para que los enlaces no tengan subrayado */
+    display: inline-block; /* Para permitir el padding y margin en enlaces */
+}
+
+.btn-elegant:hover {
+    background-color: #666;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Estilos para el ícono de cerrar sesión */
+.logout-icon {
+    color: white; /* Color del ícono */
+    font-size: 20px; /* Tamaño del ícono */
+}
+
+.offcanvas-header {
+    background-color: #555; /* Color del encabezado del sidebar igual al de los botones */
+    color: white; /* Texto blanco para contraste */
+}
+
+.offcanvas-body {
+    background-color: #f8f9fa; /* Color de fondo suave, igual al de la página */
+    color: #363636; /* Gris muy oscuro para el texto, armoniza con el resto */
+}
+
+.offcanvas-body ul li a {
+    color: #555; /* Color del texto para los enlaces, puedes ajustarlo según tu diseño */
+    text-decoration: none; /* Elimina el subrayado de los enlaces */
+    transition: color 0.3s ease; /* Suaviza la transición de color */
+}
+
+.offcanvas-body ul li a:hover {
+    color: #777; /* Color del texto al pasar el mouse, para un efecto interactivo */
+}
+
+.hola thead th{
+    background-color: #5791BB;
+}
+.hola tbody{
+    background-color: aqua;
+}
+
+#data-table{
+    text-align: center;
+    
+}
+
+.btn-elegant{
+    display: flex;
+    width: 10rem;
+    
+    
+}
+
+
