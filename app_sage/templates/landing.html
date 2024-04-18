@@ -8,13 +8,46 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Landing Page</title>
-    <link rel="stylesheet" href="static/style/landing.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    
-    
 
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- DataTables CSS para Bootstrap 5 -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap5.min.css" />
+
+    <!-- Responsive DataTables CSS -->
+    <link rel="stylesheet" type="text/css"
+        href="https://cdn.datatables.net/responsive/2.2.9/css/responsive.dataTables.min.css" />
+
+    <!-- Iconos FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <!-- Tus estilos personalizados -->
+    <link rel="stylesheet" href="static/style/landing.css">
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- Popper.js (necesario para Bootstrap JS) -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- DataTables JS -->
+    <script type="text/javascript" src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+
+    <!-- DataTables Bootstrap JS -->
+    <script type="text/javascript" src="https://cdn.datatables.net/1.11.3/js/dataTables.bootstrap5.min.js"></script>
+
+    <!-- Responsive DataTables JS -->
+    <script type="text/javascript"
+        src="https://cdn.datatables.net/responsive/2.2.9/js/dataTables.responsive.min.js"></script>
+
+    <!-- Tus scripts personalizados -->
+    <!-- Aquí podrías incluir otros archivos JS personalizados, si los tienes -->
 </head>
 
 <body>
@@ -38,6 +71,11 @@
                     <input class="form-control me-2" type="search" placeholder="Buscar..." aria-label="Buscar">
                     <button class="btn btn-outline-success" type="submit">Buscar</button>
                 </form>
+                <div class="offcanvas-body">
+                    <p>Bienvenido, {{ usuario.username }}</p>  <!-- Muestra el nombre de usuario -->
+                    <p>Email: {{ usuario.email }}</p>          <!-- Muestra el email -->
+                    <!-- Más atributos del usuario pueden ser añadidos aquí -->
+                </div>
 
                 <!-- Menú con Dropdowns para Categorías -->
                 <div class="mb-3">
@@ -74,21 +112,34 @@
                     </div>
                 </div>
 
-                <!-- Links adicionales -->
-                <ul class="list-unstyled">
-                    <li><a href="#">Inicio</a></li>
-                    <li><a href="#">Sobre nosotros</a></li>
-                    <li><a href="#">Contacto</a></li>
-                </ul>
             </div>
         </div>
 
 
         <div class="son-1">
-            <button id="generar-1" onclick="consulta1()" class="btn-elegant">consulta1</button>
-            <button id="btn-2" onclick="consulta2()" class="btn-elegant">consulta2</button>
-            <button id="btn-3" class="btn-elegant">consulta3</button>
+            <button id="generar-1" class="btn-elegant">consulta1</button>
+            <button id="generar-2" class="btn-elegant">Articulos</button>
+            <button id="generar-3" class="btn-elegant">Articulos Precio</button>
+            <button id="generar-4" class="btn-elegant">Consulta Albaran</button>
+            <button id="generar-5" class="btn-elegant">Consulta Cabecera Albaran</button>
+            <button id="generar-6" class="btn-elegant">Ofertas Clientes</button>
         </div>
+
+        <div class="d-block d-md-none">
+            <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle btn-mobile" type="button" id="dropdownMenuButton"
+                    data-bs-toggle="dropdown" aria-expanded="false">
+                    Consultas
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <li><a id="generar-1" class="dropdown-item" href="#">Consulta 1</a></li>
+                    <li><a id="generar-4" class="dropdown-item" href="#">Consulta Albaran</a></li>
+                    <li><a id="generar-5" class="dropdown-item" href="#">Consulta Cabecera Albaran</a></li>
+                </ul>
+            </div>
+        </div>
+
+
         <div class="son-2">
             <form action="{% url 'logoutView' %}" method="post">
                 {% csrf_token %}
@@ -100,16 +151,53 @@
 
     </div>
 
-    <table id="data-table" class="table table-striped table-hover table-bordered table-responsive hola">
-        <thead id="table-head">
-            <tr>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <table id="data-table" class="table table-striped table-hover table-bordered table-responsive">
+                    <thead id="table-head">
+                    </thead>
+                    <tbody>
+                        <!-- Los datos se cargarán aquí mediante JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
 
-            </tr>
-        </thead>
-        <tbody>
-            <!-- Los datos se cargarán aquí mediante JavaScript -->
-        </tbody>
-    </table>
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        Launch demo modal
+    </button>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <table id="modalTable" class="table">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Dato</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Los datos se llenarán dinámicamente -->
+                        </tbody>
+                    </table>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
 
     <script src="{% static 'js/main.js' %}"></script>
@@ -119,7 +207,6 @@
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 </body>
 

@@ -1,24 +1,28 @@
-body{
+body {
     background: #0d426788 !important;
+    padding: 0;
+    margin: 0 auto;
 }
 
-.father{
+.father {
     height: 75px;
     display: flex;
     align-items: center;
-    justify-content: space-between; /* Cambiado para distribuir el espacio */
-    padding: 0 20px; /* Agregar padding para no pegar los elementos a los bordes */
-    background-color: #f8f9fa; /* Color de fondo suave */
+    justify-content: space-between;
+    padding: 0 20px;
+    background-color: #f8f9fa;
 }
 
-.son-1, .son-2{
+.son-1,
+.son-2 {
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.son-1 button, .son-2 form a {
-    margin: 0 5px; /* Agrega un poco de margen entre los botones */
+.son-1 button,
+.son-2 form a {
+    margin: 0 5px;
 }
 
 .btn-elegant {
@@ -31,8 +35,8 @@ body{
     transition: background-color 0.3s ease, box-shadow 0.3s ease;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     font-size: 16px;
-    text-decoration: none; /* Para que los enlaces no tengan subrayado */
-    display: inline-block; /* Para permitir el padding y margin en enlaces */
+    text-decoration: none;
+    display: inline-block;
 }
 
 .btn-elegant:hover {
@@ -40,49 +44,164 @@ body{
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
-/* Estilos para el ícono de cerrar sesión */
-.logout-icon {
-    color: white; /* Color del ícono */
-    font-size: 20px; /* Tamaño del ícono */
-}
 
-.offcanvas-header {
-    background-color: #555; /* Color del encabezado del sidebar igual al de los botones */
-    color: white; /* Texto blanco para contraste */
-}
 
-.offcanvas-body {
-    background-color: #f8f9fa; /* Color de fondo suave, igual al de la página */
-    color: #363636; /* Gris muy oscuro para el texto, armoniza con el resto */
-}
 
-.offcanvas-body ul li a {
-    color: #555; /* Color del texto para los enlaces, puedes ajustarlo según tu diseño */
-    text-decoration: none; /* Elimina el subrayado de los enlaces */
-    transition: color 0.3s ease; /* Suaviza la transición de color */
-}
-
-.offcanvas-body ul li a:hover {
-    color: #777; /* Color del texto al pasar el mouse, para un efecto interactivo */
-}
-
-.hola thead th{
-    background-color: #5791BB;
-}
-.hola tbody{
-    background-color: aqua;
-}
-
-#data-table{
+#table-head tr th {
+    background-color: #122A3C;
+    color: white;
     text-align: center;
-    
 }
 
-.btn-elegant{
-    display: flex;
-    width: 10rem;
-    
-    
+#data-table_wrapper {
+    margin: 20px;
 }
 
 
+/* Asegurando que la tabla tenga desplazamiento horizontal si el contenido es muy ancho */
+.dataTables_scrollBody {
+    overflow-x: auto;
+}
+
+.mobile-dropdown-menu {
+    display: none;
+    /* Oculto por defecto */
+}
+
+
+/* Botón de anterior */
+.page-item:first-child .page-link {
+    background-color:#122A3C; /* Azul base oscuro */
+    color: white; /* Texto blanco para contraste */
+    border: none;
+}
+
+/* Botones numéricos */
+.page-item:not(:first-child) .page-link {
+    background-color:#122A3C; /* Azul base oscuro */
+    color: white; /* Texto blanco para contraste */
+    border: none;
+}
+
+/* Botón de siguiente */
+.page-item:last-child .page-link {
+    background-color:#122A3C; /* Azul base oscuro */
+    color: white; /* Texto blanco para contraste */
+    border: none;
+}
+
+div.dataTables_wrapper div.dataTables_paginate ul.pagination {
+    margin-top: 20px;
+}
+
+/* Cambiar el color del botón activo en la paginación de DataTables */
+.dataTables_wrapper .dataTables_paginate .paginate_button.current,
+.dataTables_wrapper .dataTables_paginate .paginate_button.current:hover,
+.dataTables_wrapper .dataTables_paginate .page-item.active .page-link,
+.dataTables_wrapper .dataTables_paginate .page-item.active .page-link:hover {
+    color: #fff !important;
+    /* Color del texto */
+    background-color: #144366 !important;
+    /* Color de fondo */
+    border-color: #122A3C !important;
+    /* Color del borde */
+    border-radius: 5px;
+}
+
+div.dataTables_wrapper div.dataTables_length label {
+    background-color: #122A3C;
+    color: white;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    padding: 5px;
+
+
+}
+
+div.dataTables_wrapper div.dataTables_filter label {
+    background-color: #122A3C;
+    color: white;
+    border-radius: 5px;
+    padding: 5px;
+
+}
+
+
+
+
+/* Media query para dispositivos móviles */
+@media (max-width: 768px) {
+
+    /* Estado visible (puedes activar esta clase con JavaScript) */
+    .dropdown-menu.visible {
+        display: block;
+    }
+
+    .length-wrap, .filter-wrap{
+        width: min-content;
+    }
+
+    /* Ocultar los botones en versión móvil */
+    .son-1 button {
+        display: none;
+    }
+
+    #table-head tr th {
+        font-size: 10px;
+    }
+
+    #data-table tbody tr td {
+        font-size: 10px;
+    }
+
+    #data-table_wrapper {
+        margin: 0;
+        margin-top: 20px;
+    }
+
+    .container-fluid .row {
+        font-size: 0.7rem;
+    }
+
+    div.dataTables_wrapper div.dataTables_filter input {
+        font-size: 0.8rem;
+    }
+
+    div.dataTables_wrapper div.dataTables_length select {
+        font-size: 0.8rem;
+    }
+
+    div.dataTables_wrapper div.dataTables_length label {
+        background-color: #122A3C;
+        color: white;
+        border-radius: 5px;
+        padding: 5px;
+        margin-bottom: 10px;
+
+
+    }
+
+    div.dataTables_wrapper div.dataTables_filter label {
+        background-color: #122A3C;
+        color: white;
+        border-radius: 5px;
+        padding: 5px;
+    }
+
+    .dataTables_wrapper .dataTables_paginate .page-item .page-link {
+        font-size: 0.8rem !important;
+        /* Añadir !important para sobrescribir reglas existentes */
+        padding: 10px !important;
+    }
+
+    .btn-mobile {
+        background-color: #122A3C;
+        font-size: 0.9rem;
+        margin-right: 20px;
+    }
+
+    .btn-elegant {
+        font-size: 0.9rem;
+    }
+
+}
